@@ -1,0 +1,28 @@
+<nb-card>
+  <nb-card-body>
+    <div class="tbg vh-100">
+      <div class="theader">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        <i class="fa fa-comments" aria-hidden="true"></i>
+        <div class="tlogo">
+          <!-- <img src="/assets/tinder.svg" alt="Tinder Logo" title="Tinder Logo" /> -->
+        </div>
+      </div>
+      <div class="tbgwrap">
+        <app-profile-list [parentSubject]="parentSubject">
+        </app-profile-list>
+        <div class="tcontrols">
+          <div (click)='cardAnimation("swipeleft")' class="tno">
+            <nb-icon icon="close-outline" class="cursor-pointer fs-2">
+            </nb-icon>
+          </div>
+          <div class="ti"><i class="fa fa-info" aria-hidden="true"></i></div>
+          <div (click)='cardAnimation("swiperight")' class="tyes">
+            <nb-icon icon="checkmark-outline" class="cursor-pointer fs-2">
+            </nb-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,32 @@
+<div class="" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)"
+    [@cardAnimator]="animationState" (@cardAnimator.done)="resetAnimationState($event)">
+    <div class="row mb-4">
+        <div class="col-md-12 tphoto p-0">
+            <img [src]="users[index]?.userImage" class="h-100" width="350" title="tphoto" alt="Profile Picture" />
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{{users[index]?.name || '-'}}</h2>
+        </div>
+        <div class="col-md-12 d-flex">
+            <!-- <div class="d-flex"> -->
+                <p class="ms-1 mb-0">{{users[index]?.age}}</p>
+                <p class="ms-1 mb-0">{{users[index]?.height}}</p>
+                <p class="ms-1 mb-0">{{users[index]?.Education}}</p>
+                <p class="ms-1 mb-0">{{users[index]?.profession}}</p>
+                <p class="ms-1 mb-0">{{users[index]?.zodiac_star}}</p>
+            <!-- </div> -->
+            <!-- <div class="d-flex"> -->
+                <p class="ms-1 mb-0">{{users[index]?.Religion}} - {{users[index]?.caste}}</p>
+                <p class="ms-1 mb-0">{{users[index]?.city}}</p>
+            <!-- </div>
+            <div class="d-flex"> -->
+                <p class="ms-1 mb-0">{{users[index]?.state}}</p>
+            <!-- </div> -->
+        </div>
+
+    </div>
+    <!-- <div class="tname">{{users[index]?.name || '-'}}, <span class="age">{{users[index]?.age || '-'}}</span></div> -->
+</div>
