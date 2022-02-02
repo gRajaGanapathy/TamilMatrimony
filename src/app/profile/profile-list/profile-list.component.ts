@@ -47,7 +47,7 @@ export class ProfileListComponent implements OnInit {
         this.toasterService.danger('', 'Not Interested', { duration });
       } else if (value === 'swiperight') {
         this.toasterService.success(' ', 'Interested', { duration });
-      } else if (value === 'shortlist') {
+      } else {
         this.toasterService.primary(' ', 'Shortlisted', { duration });
       }
       this.animationState = value;
