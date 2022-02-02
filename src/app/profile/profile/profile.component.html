@@ -1,4 +1,4 @@
-<nb-card size="giant" class="vh" [nbSpinner]="isLoading">
+<nb-card size="giant" class="card-height" [nbSpinner]="isLoading">
   <nb-card-body>
     <div class="row mt-5">
       <div class="col-xl-3 col-lg-5 col-md-6 mx-auto col-12 border border_radius box">
@@ -8,18 +8,18 @@
     </div>
   </nb-card-body>
   <nb-card-footer>
-    <div class="row" *ngIf="dataList">
-      <div class="col-md-4 col-12 d-flex mb-1 justify-content-center">
+    <div class="d-flex justify-content-around" *ngIf="dataList">
+      <div class="d-flex">
         <nb-icon icon="close-outline" class="me-2 text-danger"></nb-icon>
-        <p class="m-0">Not Interested : {{dataList?.notInterested?.length || '0' }}</p>
+        <p class="m-0">{{dataList?.notInterested?.length || '0' }}</p>
       </div>
-      <div class="col-md-4 col-12 d-flex mb-1 justify-content-center">
-        <nb-icon icon="clipboard-outline" class="me-2 text-primary"></nb-icon>
-        <p class="m-0">Shortlisted : {{dataList?.shortlisted?.length || '0' }}</p>
+      <div class="d-flex">
+        <nb-icon icon="star-outline" class="me-2 text-primary"></nb-icon>
+        <p class="m-0">{{dataList?.shortlisted?.length || '0' }}</p>
       </div>
-      <div class="col-md-4 col-12 d-flex mb-1 justify-content-center">
+      <div class="d-flex">
         <nb-icon icon="heart-outline" class="me-2 text-success"></nb-icon>
-        <p class="m-0">Interested : {{dataList?.interested?.length || '0' }}</p>
+        <p class="m-0">{{dataList?.interested?.length || '0' }}</p>
       </div>
     </div>
   </nb-card-footer>
