@@ -1,10 +1,13 @@
-.view{
+.view {
     display: contents;
 }
-.text-purple{
+.text-purple {
     color: #ac8ad1;
 }
-.responsive {
-    width: 100%;
-    height: auto;
-  }
+.custom_height{
+    height: 350px;
+    overflow: hidden;
+}
+.disable_grab{
+    pointer-events: none;
+}

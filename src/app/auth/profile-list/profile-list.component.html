@@ -1,8 +1,8 @@
-<div class="" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)" [@cardAnimator]="animationState"
+<div (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)" [@cardAnimator]="animationState"
     (@cardAnimator.done)="resetAnimationState($event)">
     <div class="row mb-4">
-        <div class="col-md-12 col-12 border_radius p-0 cursor-pointer">
-            <img [src]="users[index]?.userImage" height="300" class="w-100 border_radius responsive" title="tphoto" alt="Profile Picture" />
+        <div class="col-md-12 col-12 border_radius p-0 cursor-pointer custom_height">
+            <img [src]="users[index]?.userImage" class="w-100 border_radius disable_grab" title="tphoto" alt="Profile Picture" />
         </div>
         <div class="col-md-12 col-12 d-flex">
             <div class="row mx-2 my-auto">
