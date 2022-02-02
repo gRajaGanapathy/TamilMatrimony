@@ -19,7 +19,6 @@ export interface User {
   caste: string,
   state: string,
   city: string,
-  country: string,
   Education: string,
   profession: string,
   zodiac_star: string,
