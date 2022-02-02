@@ -1,27 +1,9 @@
-<nb-card>
+<nb-card size="giant">
   <nb-card-body>
     <div class="row">
-      <div class="col-md-6 mx-auto col-12 border border_radius">
+      <div class="col-xl-3 col-lg-5 col-md-6 mx-auto col-12 border border_radius box">
         <app-profile-list [parentSubject]="parentSubject">
         </app-profile-list>
-        <hr class="my-3 mx-2">
-        <div class="row px-2 mb-3">
-          <div class="col-md-5 col-12 d-flex cursor-pointer">
-            <nb-icon icon="star-outline"></nb-icon>
-            <p class="ms-2 mb-0" (click)='cardAnimation("shortlist")'>Shortlist</p>
-          </div>
-          <div class="col-md-7 col-12 d-flex">
-            <p class="my-auto fw-bold me-2">Like her?</p>
-            <div (click)='cardAnimation("swipeleft")' class="border rounded-pill me-2">
-              <nb-icon icon="close-outline" class="cursor-pointer fs-5 my-1 mx-2">
-              </nb-icon>
-            </div>
-            <div (click)='cardAnimation("swiperight")' class="border rounded-pill bg-warning">
-              <nb-icon icon="checkmark-outline" class="cursor-pointer fs-5 my-1 mx-3 text-white">
-              </nb-icon>
-            </div>
-          </div> 
-        </div>
       </div>
     </div>
   </nb-card-body>

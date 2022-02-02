@@ -14,8 +14,5 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cardAnimation(value: any) {
-    this.parentSubject.next(value);
-  }
 
 }

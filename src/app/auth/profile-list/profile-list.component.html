@@ -1,25 +1,25 @@
 <div class="" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)" [@cardAnimator]="animationState"
     (@cardAnimator.done)="resetAnimationState($event)">
     <div class="row mb-4">
-        <div class="col-xl-6 col-md-12 col-12 border_radius p-0 cursor-pointer">
-            <img [src]="users[index]?.userImage" class="w-100" title="tphoto" alt="Profile Picture" />
+        <div class="col-md-12 col-12 border_radius p-0 cursor-pointer">
+            <img [src]="users[index]?.userImage" height="300" class="w-100 border_radius responsive" title="tphoto" alt="Profile Picture" />
         </div>
-        <div class="col-xl-6 col-md-12 col-12 d-flex">
+        <div class="col-md-12 col-12 d-flex">
             <div class="row mx-2 my-auto">
-                <div class="col-md-12 d-flex justify-content-center mt-2 p-0">
-                    <p class="mb-1 me-2 fw-bold">
+                <div class="col-md-12 d-flex mt-2 p-0">
+                    <p class="mb-1 me-2 fw-bold text-primary">
                         <nb-icon icon="shield-outline" class="cursor-pointer">
                         </nb-icon>
                         Verified
                     </p>
-                    <p class="mb-1 fw-bold">
+                    <p class="mb-1 fw-bold text-purple">
                         <nb-icon icon="award-outline" class="cursor-pointer">
                         </nb-icon>
                         Premium NRI
                     </p>
                 </div>
                 <div class="col-md-12 p-0">
-                    <h2>{{users[index]?.name || '-'}}</h2>
+                    <h5>{{users[index]?.name || '-'}}</h5>
                 </div>
                 <div class="col-md-12 view">
                     <p class="ms-1 mb-0">{{users[index]?.age}}</p>
@@ -34,4 +34,22 @@
             </div>
         </div>
     </div>
+</div>
+<hr class="my-3 mx-2">
+<div class="row px-2 mb-3">
+  <div class="col-xxxl-5 col-sm-4 col-12 d-flex cursor-pointer my-auto">
+    <nb-icon icon="star-outline"></nb-icon>
+    <p class="ms-2 mb-0" (click)='startAnimation("shortlist")'>Shortlist</p>
+  </div>
+  <div class="col-xxxl-7 col-sm-8 col-12 d-flex">
+    <p class="my-auto fw-bold me-2">Like her?</p>
+    <div (click)='startAnimation("swipeleft")' class="border rounded-pill me-2">
+      <nb-icon icon="close-outline" class="cursor-pointer fs-5 my-1 mx-2">
+      </nb-icon>
+    </div>
+    <div (click)='startAnimation("swiperight")' class="border rounded-pill bg-warning">
+      <nb-icon icon="checkmark-outline" class="cursor-pointer fs-5 my-1 mx-3 text-white">
+      </nb-icon>
+    </div>
+  </div> 
 </div>
