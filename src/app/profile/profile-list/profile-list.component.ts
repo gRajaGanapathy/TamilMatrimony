@@ -24,9 +24,6 @@ export class ProfileListComponent implements OnInit {
   users: User[] = [];
   index = 0;
   @Input() parentSubject: Subject<any> | any;
-
-
-
   animationState: string | any;
   eventText: string | any;
   constructor(
@@ -38,6 +35,7 @@ export class ProfileListComponent implements OnInit {
   }
 
   startAnimation(value: any) {
+    this.dataService.checkSpinner(true);
     if (!this.animationState) {
       const duration = 800;
       this.index++;
@@ -52,6 +50,9 @@ export class ProfileListComponent implements OnInit {
         this.toasterService.primary(' ', 'Shortlisted', { duration });
       }
       this.animationState = value;
+      setTimeout(() => {
+        this.dataService.checkSpinner(false);
+      }, 800);
     }
   }
 
@@ -60,10 +61,14 @@ export class ProfileListComponent implements OnInit {
   }
 
   getUserList(): void {
+    this.dataService.checkSpinner(true);
     this.httpClient.get<any>('assets/profile_detail.json')
       .pipe(
         debounceTime(2000))
       .subscribe((data: any) => {
+        setTimeout(() => {
+          this.dataService.checkSpinner(false);
+        }, 800);
         this.users = data.profile_details;
       });
   }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 
@@ -20,5 +21,12 @@ export class DataService {
       .subscribe((data: any) => {
         this.users = data.profile_details;
       });
+  }
+
+  private spinner = new BehaviorSubject({});
+  nbSpinner = this.spinner.asObservable();
+
+  checkSpinner(data: any) {
+    this.spinner.next(data);
   }
 }

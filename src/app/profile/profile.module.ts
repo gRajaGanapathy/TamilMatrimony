@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './auth-routing.module';
 import { IndexComponent } from './index/index.component';
 import { ProfileComponent } from './profile/profile.component';
-import { NbCardModule, NbIconModule, NbLayoutModule, NbToastrModule } from '@nebular/theme';
+import { NbCardModule, NbIconModule, NbLayoutModule, NbSpinnerModule, NbToastrModule } from '@nebular/theme';
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { SharedModule } from '../shared/shared.module';
 
@@ -22,7 +22,8 @@ import { SharedModule } from '../shared/shared.module';
     NbCardModule,
     NbIconModule,
     NbToastrModule,
-    SharedModule
+    SharedModule,
+    NbSpinnerModule
   ]
 })
 export class profileModule { }

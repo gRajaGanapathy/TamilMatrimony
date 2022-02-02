@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,10 +9,20 @@ import { Subject } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
   parentSubject:Subject<string> = new Subject();
+  isLoading = false;
 
-  constructor() { }
+
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this.dataService.nbSpinner.subscribe((data: any) => {
+      if (data === true || data === false) {
+        this.isLoading = data;
+
+      }
+    });
   }
 
 
