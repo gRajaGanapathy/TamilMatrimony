@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { IndexComponent } from './index/index.component';
 import { ProfileComponent } from './profile/profile.component';
-import { NbCardModule, NbIconModule, NbLayoutModule } from '@nebular/theme';
+import { NbCardModule, NbIconModule, NbLayoutModule, NbToastrModule } from '@nebular/theme';
 import { ProfileListComponent } from './profile-list/profile-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { ProfileListComponent } from './profile-list/profile-list.component';
     AuthRoutingModule,
     NbLayoutModule,
     NbCardModule,
-    NbIconModule
+    NbIconModule,
+    NbToastrModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

@@ -1,35 +1,37 @@
 <div class="" (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)" [@cardAnimator]="animationState"
     (@cardAnimator.done)="resetAnimationState($event)">
     <div class="row mb-4">
-        <div class="col-md-12 tphoto p-0">
-            <img [src]="users[index]?.userImage" class="h-100" width="350" title="tphoto" alt="Profile Picture" />
+        <div class="col-xl-6 col-md-12 col-12 border_radius p-0 cursor-pointer">
+            <img [src]="users[index]?.userImage" class="w-100" title="tphoto" alt="Profile Picture" />
         </div>
-    </div>
-    <div class="row mx-2">
-        <div class="col-md-12 d-flex mt-2">
-            <p class="mb-1 me-2 fw-bold">
-                <nb-icon icon="shield-outline" class="cursor-pointer">
-                </nb-icon>
-                Verified
-            </p>
-            <p class="mb-1 fw-bold">
-                <nb-icon icon="award-outline" class="cursor-pointer">
-                </nb-icon>
-                Premium NRI
-            </p>
-        </div>
-        <div class="col-md-12 p-0">
-            <h2>{{users[index]?.name || '-'}}</h2>
-        </div>
-        <div class="col-md-12 view">
-            <p class="ms-1 mb-0">{{users[index]?.age}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.height}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.Education}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.profession}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.zodiac_star}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.Religion}} - {{users[index]?.caste}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.city}}</p>
-            <p class="ms-1 mb-0">{{users[index]?.state}}</p>
+        <div class="col-xl-6 col-md-12 col-12 d-flex">
+            <div class="row mx-2 my-auto">
+                <div class="col-md-12 d-flex justify-content-center mt-2 p-0">
+                    <p class="mb-1 me-2 fw-bold">
+                        <nb-icon icon="shield-outline" class="cursor-pointer">
+                        </nb-icon>
+                        Verified
+                    </p>
+                    <p class="mb-1 fw-bold">
+                        <nb-icon icon="award-outline" class="cursor-pointer">
+                        </nb-icon>
+                        Premium NRI
+                    </p>
+                </div>
+                <div class="col-md-12 p-0">
+                    <h2>{{users[index]?.name || '-'}}</h2>
+                </div>
+                <div class="col-md-12 view">
+                    <p class="ms-1 mb-0">{{users[index]?.age}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.height}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.Education}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.profession}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.zodiac_star}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.Religion}} - {{users[index]?.caste}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.city}}</p>
+                    <p class="ms-1 mb-0">{{users[index]?.state}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

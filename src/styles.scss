@@ -16,3 +16,10 @@
 @include nb-install() {
   @include nb-theme-global();
 };
+.cursor-pointer{
+  cursor: pointer;
+}
+.border_radius{
+  border-top-left-radius: 0.95rem ;
+  border-top-right-radius: 0.95rem ;
+}

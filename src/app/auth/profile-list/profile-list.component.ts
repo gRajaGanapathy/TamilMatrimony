@@ -1,8 +1,10 @@
 import { animate, keyframes, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { NbToastrService } from '@nebular/theme';
 import { Subject } from 'rxjs';
-import { profile_details, swiperight, swipeleft, User } from 'src/app/shared/constant';
-// import User from 'user';
+import { swiperight, swipeleft, User } from 'src/app/shared/constant';
+import { HttpClient } from "@angular/common/http";
+
 
 
 @Component({
@@ -17,9 +19,8 @@ import { profile_details, swiperight, swipeleft, User } from 'src/app/shared/con
   ]
 })
 export class ProfileListComponent implements OnInit {
-  public users: any = profile_details;
-
-  public index = 0;
+   users: User[] = [];
+   index = 0;
   @Input()
   parentSubject: Subject<any> | any;
 
@@ -27,11 +28,12 @@ export class ProfileListComponent implements OnInit {
 
   animationState: string | any;
   eventText: string | any;
-  constructor() { }
+  constructor(
+    private toasterService: NbToastrService, private httpClient: HttpClient
+  ) {  }
 
   ngOnInit() {
-    console.log('swipeleft', swipeleft)
-    console.log('profile_details', this.users)
+    this.getUserList();
     this.parentSubject.subscribe((event: any) => {
       console.log('event in gesture', event)
       this.startAnimation(event)
@@ -41,6 +43,14 @@ export class ProfileListComponent implements OnInit {
   startAnimation(state: any) {
     console.log('state', state)
     if (!this.animationState) {
+      const duration = 800;
+      if (state === 'swipeleft') {
+        this.toasterService.danger('', 'Not Interested', {duration});
+      } else if (state === 'swiperight') {
+        this.toasterService.success(' ', 'Interested', {duration});
+      } else if(state === 'shortlist'){
+        this.toasterService.show(' ', 'Shortlisted', {duration});
+      }
       this.animationState = state;
     }
   }
@@ -58,6 +68,11 @@ export class ProfileListComponent implements OnInit {
 
     this.eventText += `${x} ${y}<br/>`;
 }
+  getUserList(): void{
+    this.httpClient.get<any>('assets/profile_detail.json').subscribe((data: any)=>{
+      this.users = data.profile_details
+      });
+  }
 
   ngOnDestroy() {
     this.parentSubject.unsubscribe();
@@ -69,5 +84,5 @@ export class ProfileListComponent implements OnInit {
   onSwipeLeft(event:any) {
     this.startAnimation('swipeleft')
   }
-
+  
 }
