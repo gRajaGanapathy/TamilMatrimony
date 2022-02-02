@@ -38,9 +38,12 @@ export class ProfileListComponent implements OnInit {
   }
 
   startAnimation(value: any) {
-    console.log('value', value)
     if (!this.animationState) {
       const duration = 800;
+      this.index++;
+      if (this.users.length === this.index) {
+        this.index = 0;
+      }
       if (value === 'swipeleft') {
         this.toasterService.danger('', 'Not Interested', { duration });
       } else if (value === 'swiperight') {
@@ -53,24 +56,15 @@ export class ProfileListComponent implements OnInit {
   }
 
   resetAnimationState(state: any) {
-    console.log('state', state)
     this.animationState = '';
-    this.index++;
   }
 
-
-  onSwipe(evt: any) {
-    const x = Math.abs(evt.deltaX) > 40 ? (evt.deltaX > 0 ? 'right' : 'left') : '';
-    const y = Math.abs(evt.deltaY) > 40 ? (evt.deltaY > 0 ? 'down' : 'up') : '';
-
-    this.eventText += `${x} ${y}<br/>`;
-  }
-  getUserList(): void {    
+  getUserList(): void {
     this.httpClient.get<any>('assets/profile_detail.json')
-    .pipe(
-      debounceTime(2000))
-    .subscribe((data: any)=>{
-      this.users = data.profile_details;
+      .pipe(
+        debounceTime(2000))
+      .subscribe((data: any) => {
+        this.users = data.profile_details;
       });
   }
 

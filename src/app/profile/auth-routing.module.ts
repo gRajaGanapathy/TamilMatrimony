@@ -9,7 +9,7 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       {
-        path: 'auth',
+        path: 'profile',
         component: ProfileComponent,
         data: { title: 'Profile' },
       },
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule { }
+export class ProfileRoutingModule { }

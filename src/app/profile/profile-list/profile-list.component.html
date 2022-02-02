@@ -2,14 +2,13 @@
     (@cardAnimator.done)="resetAnimationState($event)">
     <div class="row mb-4">
         <div class="col-md-12 col-12 border_radius p-0 cursor-pointer custom_height">
-            <img [src]="users[index]?.userImage" class="w-100 border_radius disable_grab" title="tphoto" alt="Profile Picture" />
+            <img [src]="users[index]?.userImage" class="w-100 border_radius disable_grab h-auto" title="tphoto" alt="Profile Picture" />
         </div>
         <div class="col-md-12 col-12 d-flex">
             <div class="row mx-2 my-auto">
                 <div class="col-md-12 d-flex mt-2 p-0">
                     <p class="mb-1 me-2 fw-bold text-primary">
-                        <nb-icon icon="shield-outline" class="cursor-pointer">
-                        </nb-icon>
+                        <img src="../../../assets/images/verify.png" class="cursor-pointer">
                         Verified
                     </p>
                     <p class="mb-1 fw-bold text-purple">
