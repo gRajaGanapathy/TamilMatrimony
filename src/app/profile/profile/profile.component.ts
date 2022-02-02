@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NbToastrService } from '@nebular/theme';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 import { User } from 'src/app/shared/constant';
 import { DataService } from '../../shared/services/data.service';
 
@@ -21,6 +19,7 @@ export class ProfileComponent implements OnInit {
   interestedUser: any = [];
   notInterestedUser: any = [];
   shortListeduser: any = [];
+  mobileReSize = false;
 
 
   constructor(
@@ -38,6 +37,17 @@ export class ProfileComponent implements OnInit {
         this.dataList = res;
       }
     })
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    if (window.innerWidth >= 800) {
+      this.mobileReSize = false;
+    } else  {
+      this.mobileReSize = true;
+    }
   }
 
 
