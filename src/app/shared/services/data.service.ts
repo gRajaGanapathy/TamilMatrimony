@@ -16,4 +16,11 @@ export class DataService {
   checkSpinner(data: any) {
     this.spinner.next(data);
   }
+
+  private count = new BehaviorSubject({});
+  countList = this.spinner.asObservable();
+
+  checkCountList(data: any) {
+    this.spinner.next(data);
+  }
 }

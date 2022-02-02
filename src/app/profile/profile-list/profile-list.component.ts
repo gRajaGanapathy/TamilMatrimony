@@ -23,9 +23,11 @@ import { debounceTime } from 'rxjs/operators';
 export class ProfileListComponent implements OnInit {
   users: User[] = [];
   index = 0;
-  @Input() parentSubject: Subject<any> | any;
   animationState: string | any;
   eventText: string | any;
+  interestedUser: any = [];
+  notInterestedUser: any = [];
+  shortListeduser: any = [];
 
   constructor(
     private toasterService: NbToastrService, private httpClient: HttpClient, private dataService: DataService
@@ -37,6 +39,9 @@ export class ProfileListComponent implements OnInit {
 
   startAnimation(value: any) {
     this.dataService.checkSpinner(true);
+    this.interestedUser;
+    this.notInterestedUser;
+    this.shortListeduser;
     if (!this.animationState) {
       const duration = 800;
       this.index++;
@@ -45,11 +50,20 @@ export class ProfileListComponent implements OnInit {
       }
       if (value === 'swipeleft') {
         this.toasterService.danger('', 'Not Interested', { duration });
+        this.notInterestedUser.push([this.users[this.index]]);
       } else if (value === 'swiperight') {
         this.toasterService.success(' ', 'Interested', { duration });
+        this.interestedUser.push([this.users[this.index]]);
       } else {
         this.toasterService.primary(' ', 'Shortlisted', { duration });
+        this.shortListeduser.push([this.users[this.index]]);
       }
+      const payload = {
+        interested: this.interestedUser,
+        notInterested: this.notInterestedUser,
+        shortlisted: this.shortListeduser
+      }
+      this.dataService.checkCountList(payload);
       this.animationState = value;
       setTimeout(() => {
         this.dataService.checkSpinner(false);
@@ -80,9 +94,5 @@ export class ProfileListComponent implements OnInit {
 
   onSwipeLeft(event: any) {
     this.startAnimation('swipeleft')
-  }
-
-  ngOnDestroy() {
-    this.parentSubject.unsubscribe();
   }
 }
