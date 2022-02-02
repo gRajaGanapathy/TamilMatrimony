@@ -1,38 +1,39 @@
 <div (swipeleft)="onSwipeLeft($event)" (swiperight)="onSwipeRight($event)" [@cardAnimator]="animationState"
-    (@cardAnimator.done)="resetAnimationState($event)">
-    <div class="row mb-4">
-        <div class="col-md-12 col-12 border_radius p-0 cursor-pointer custom_height">
-            <img [src]="users[index]?.userImage" class="w-100 border_radius disable_grab h-auto" title="tphoto" alt="Profile Picture" />
-        </div>
-        <div class="col-md-12 col-12 d-flex">
-            <div class="row mx-2 my-auto">
-                <div class="col-md-12 d-flex mt-2 p-0">
-                    <p class="mb-1 me-2 fw-bold text-primary">
-                        <img src="../../../assets/images/verify.png" class="cursor-pointer me-1 mb-1">
-                        <span class="mt-1">Verified</span>
-                    </p>
-                    <p class="mb-1 fw-bold text-purple d-flex">
-                        <nb-icon icon="award-outline" class="cursor-pointer me-1">
-                        </nb-icon>
-                        <span class="mb-2">Premium NRI</span>
-                    </p>
-                </div>
-                <div class="col-md-12 p-0">
-                    <h5>{{users[index]?.name || '-'}}</h5>
-                </div>
-                <div class="col-md-12 view">
-                    <p class="ms-1 mb-0">{{users[index]?.age}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.height}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.Education}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.profession}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.zodiac_star}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.Religion}} - {{users[index]?.caste}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.city}}</p>
-                    <p class="ms-1 mb-0">{{users[index]?.state}}</p>
-                </div>
-            </div>
-        </div>
+  (@cardAnimator.done)="resetAnimationState($event)">
+  <div class="row mb-4">
+    <div class="col-md-12 col-12 border_radius p-0 cursor-pointer custom_height">
+      <img [src]="users[index]?.userImage" class="w-100 border_radius disable_grab h-auto" title="Profile Picture"
+        alt="Profile Picture" />
     </div>
+    <div class="col-md-12 col-12 d-flex">
+      <div class="row mx-2 my-auto">
+        <div class="col-md-12 d-flex mt-2 p-0">
+          <p class="mb-1 me-2 fw-bold text-primary">
+            <img src="../../../assets/images/verify.png" class="cursor-pointer me-1 mb-1">
+            <span class="mt-1">Verified</span>
+          </p>
+          <p class="mb-1 fw-bold text-purple d-flex">
+            <nb-icon icon="award-outline" class="cursor-pointer me-1">
+            </nb-icon>
+            <span class="mb-2">Premium NRI</span>
+          </p>
+        </div>
+        <div class="col-md-12 p-0">
+          <h5>{{users[index]?.name || '-'}}</h5>
+        </div>
+        <div class="col-md-12 view">
+          <p class="ms-1 mb-0">{{users[index]?.age || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.height || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.Education || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.profession || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.zodiac_star || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.Religion || '-'}} - {{users[index]?.caste || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.city || '-'}}</p>
+          <p class="ms-1 mb-0">{{users[index]?.state || '-'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <hr class="my-3 mx-2">
 <div class="row px-2 mb-3">
@@ -50,5 +51,5 @@
       <nb-icon icon="checkmark-outline" class="cursor-pointer fs-5 my-1 mx-3 text-white">
       </nb-icon>
     </div>
-  </div> 
+  </div>
 </div>

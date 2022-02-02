@@ -8,7 +8,6 @@ import { DataService } from '../../shared/services/data.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  parentSubject:Subject<string> = new Subject();
   isLoading = false;
 
 
@@ -20,7 +19,6 @@ export class ProfileComponent implements OnInit {
     this.dataService.nbSpinner.subscribe((data: any) => {
       if (data === true || data === false) {
         this.isLoading = data;
-
       }
     });
   }

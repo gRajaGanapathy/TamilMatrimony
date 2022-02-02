@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProfileRoutingModule } from './auth-routing.module';
+import { ProfileRoutingModule } from './profile-routing.module';
 import { IndexComponent } from './index/index.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NbCardModule, NbIconModule, NbLayoutModule, NbSpinnerModule, NbToastrModule } from '@nebular/theme';

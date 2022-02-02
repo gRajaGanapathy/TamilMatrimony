@@ -26,6 +26,7 @@ export class ProfileListComponent implements OnInit {
   @Input() parentSubject: Subject<any> | any;
   animationState: string | any;
   eventText: string | any;
+
   constructor(
     private toasterService: NbToastrService, private httpClient: HttpClient, private dataService: DataService
   ) { }
@@ -73,14 +74,15 @@ export class ProfileListComponent implements OnInit {
       });
   }
 
-  ngOnDestroy() {
-    this.parentSubject.unsubscribe();
-  }
   onSwipeRight(event: any) {
     this.startAnimation('swiperight')
   }
 
   onSwipeLeft(event: any) {
     this.startAnimation('swipeleft')
+  }
+
+  ngOnDestroy() {
+    this.parentSubject.unsubscribe();
   }
 }
